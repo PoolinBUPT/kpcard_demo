@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="with:80%">
+    <form class="form-horizontal" th:action="@{/addBlessing}" th:object="${blessing}" method="post">
+        <div class="form-group">
+            <label for="buser" class="col-sm-2 control-label">buser</label>
+            <div class="col-sm-10">
+                <input type="text" th:field="*{buser}" class="form-control" name="buser"  id="buser" placeholder="buser"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="btype" class="col-sm-2 control-label" >btype</label>
+            <div class="col-sm-10">
+                <input type="text" th:field="*{btype}" class="form-control" name="btype" id="btype" placeholder="btype"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="blessing" class="col-sm-2 control-label">blessing</label>
+            <div class="col-sm-10">
+                <input type="text" th:field="*{blessing}" class="form-control" name="blessing"  id="blessing" placeholder="blessing"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="createtime" class="col-sm-2 control-label">createtime</label>
+            <div class="col-sm-10">
+                <input type="date" th:field="*{createtime}" class="form-control" name="createtime"  id="createtime" placeholder="createtime"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="sysflag" class="col-sm-2 control-label">sysflag</label>
+            <div class="col-sm-10">
+                <input type="text"th:field="*{sysflag}"  class="form-control" name="sysflag"  id="sysflag" placeholder="sysflag"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" value="Submit" class="btn btn-info">Submit</button>
+                &nbsp; &nbsp; &nbsp;
+                <input type="reset" value="Reset" class="btn btn-info"/>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

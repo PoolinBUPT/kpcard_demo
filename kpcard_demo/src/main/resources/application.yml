@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/kpcard
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  thymeleaf:
+    cache: false
+  mail:
+    host: smtp.163.com
+    username: s47698572@163.com
+    password: 091157zyh
+    default-encoding: utf-8
+server:
+  port: 8080
+
+

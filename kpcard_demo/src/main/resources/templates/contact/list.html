@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>userList</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}"></link>
+</head>
+<body class="container">
+<br/>
+<h1>联系人</h1>
+<br/><br/>
+<div class="with:80%">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>姓名</th>
+            <th>称呼</th>
+            <th>邮箱地址</th>
+            <th>所在分组</th>
+            <th>操作</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr  th:each="contact : ${contacts}">
+            <th scope="row" >
+                <input type="checkbox" name="noactive" th:checked="false" />
+            </th>
+            <td th:text="${contact.contname}">姓名</td>
+            <td th:text="${contact.callname}">称呼</td>
+            <td th:text="${contact.contemail}">邮箱地址</td>
+            <td th:text="${contact.groups}">所在分组</td>
+            <td><a th:href="@{/dele(rid=${contact.id},page=${contacts.number})}">delete</a></td>
+            <td><a th:href="@{/dele(rid=${contact.id},page=${contacts.number})}">delete</a></td>
+            <td><a th:href="@{/dele(rid=${contact.id},page=${contacts.number})}">delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!--<div>-->
+    <!--<li th:if="${cards.hasPrevious()}"><a href="/page" th:href="@{/page(page=${cards.number-1})}" class="btn btn-info">previous</a></li>-->
+    <!--<li th:if="${cards.hasNext()}"><a href="/page" th:href="@{/page(page=${cards.number+1})}" class="btn btn-info">next</a></li>-->
+<!--</div>-->
+<!--<div class="form-group">-->
+    <!--<div class="col-sm-2 control-label">-->
+        <!--<a href="/toAdd" th:href="@{/toAdd}" class="btn btn-info">add</a>-->
+    <!--</div>-->
+<!--</div>-->
+
+</body>
+</html>

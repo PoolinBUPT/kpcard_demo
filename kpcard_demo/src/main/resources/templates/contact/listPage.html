@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>userList</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}"></link>
+</head>
+<body class="container">
+<br/>
+<h1>联系人</h1>
+<br/><br/>
+<div class="with:80%">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>姓名</th>
+            <th>称呼</th>
+            <th>邮箱地址</th>
+            <th>所在分组</th>
+            <th>操作</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr  th:each="contact : ${contacts}">
+            <th scope="row" >
+                <input type="checkbox" name="noactive" th:checked="false" />
+            </th>
+            <td th:text="${contact.contname}">姓名</td>
+            <td th:text="${contact.callname}">称呼</td>
+            <td th:text="${contact.contemail}">邮箱地址</td>
+            <td th:text="${contact.groups}">所在分组</td>
+            <td><a th:href="@{/contact/dele(id=${contact.id},page=${contacts.number})}">mail</a></td>
+            <td><a th:href="@{/contact/toEdit(id=${contact.id})}">edit</a></td>
+            <td><a th:href="@{/contact/dele(group=${group},keyWords=${keyWords},page=${contacts.number},contactId=${contact.id})}">delete</a></td>
+            <td th:text="${contact.id}">所在分组</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <td th:text="${contacts.number}">姓名</td>
+    <td th:text="${contacts.hasPrevious()}">姓名</td>
+    <td th:text="${contacts.hasNext()}">姓名</td>
+    <li th:if="${contacts.hasPrevious()}"><a href="/page" th:href="@{/contact/sortPage(group=${group},keyWords=${keyWords},page=${contacts.number-1})}" class="btn btn-info">previous</a></li>
+    <li th:if="${contacts.hasNext()}"><a href="/page" th:href="@{/contact/sortPage(group=${group},keyWords=${keyWords},page=${contacts.number+1})}" class="btn btn-info">next</a></li>
+</div>
+<div class="form-group">
+    <div class="col-sm-2 control-label">
+        <a href="/toAdd" th:href="@{/contact/toAdd}" class="btn btn-info">add</a>
+    </div>
+</div>
+
+</body>
+</html>

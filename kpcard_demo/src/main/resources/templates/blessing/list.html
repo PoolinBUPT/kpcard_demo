@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>BlessingList</title>
+</head>
+<body>
+<br/>
+<h1>祝福语列表</h1>
+<br/><br/>
+<div class="with:80%">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Blessing User</th>
+            <th>Blessing Type</th>
+            <th>System Flag</th>
+            <th>Create Time</th>
+            <th>Blessing</th>
+            <!--<th>Edit</th>-->
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- 这里有问题！！！-->
+        <tr  th:each="blessing:${blessings}">
+            <th scope="row" th:text="${blessing.bid}">1</th>
+            <td th:text="${blessing.buser}">user</td>
+            <td th:text="${blessing.btype}">type</td>
+            <td th:text="${blessing.sysflag}">flag</td>
+            <td th:text="${blessing.createtime}">create</td>
+            <td th:text="${blessing.blessing}">blessing</td>
+            <td><a th:href="@{/editBlessing(bid=${blessing.bid})}">edit</a></td>
+            <td><a th:href="@{/delete(bid=${blessing.bid})}">delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="form-group">
+    <div class="col-sm-2 control-label">
+        <a href="/addBlessing" th:href="@{/addBlessing}" class="btn btn-info">add</a>
+    </div>
+</div>
+</body>
+</html>

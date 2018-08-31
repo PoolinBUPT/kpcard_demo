@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<br/>
+<h1>修改用户</h1>
+<br/><br/>
+<div class="with:80%">
+    <form class="form-horizontal" th:action="@{/edit}" th:object="${blessing}"  method="post">
+        <input type="hidden" name="bid" th:value="*{bid}" />
+        <div class="form-group">
+            <label for="buser" class="col-sm-2 control-label">buser</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="buser"  id="buser" th:value="*{buser}" th:valuetype="Integer" placeholder="buser"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="btype" class="col-sm-2 control-label" >btype</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="btype" id="btype"  th:value="*{btype}" th:valuetype="Integer" placeholder="btype"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="blessing" class="col-sm-2 control-label">blessing</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="blessing"  id="blessing" th:value="*{blessing}" th:valuetype="String" placeholder="blessing"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="createtime" class="col-sm-2 control-label">createtime</label>
+            <div class="col-sm-10">
+                <input type="date" class="form-control" name="createtime"  id="createtime" th:value="*{createtime}" th:valuetype="Date" placeholder="createtime"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="sysflag" class="col-sm-2 control-label">sysflag</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="sysflag"  id="sysflag" th:value="*{sysflag}" th:valuetype="Integer" placeholder="sysflag"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="submit" value="Submit" class="btn btn-info" th:href="@{/addBlessing}" />
+                &nbsp; &nbsp; &nbsp;
+                <a th:href="@{/list}" class="btn btn-info">Back</a>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
